@@ -1,0 +1,19 @@
+name: GeekTicket
+version: ${project.version}
+main: me.geekTicket.GeekTicketMain
+author: HSDlao_liao
+website: https://www.geekcraft.ink/
+depend: [PlaceholderAPI]
+softdepend: [TrMenu]
+api-version: 1.13
+commands:
+  geekt:
+    description: 插件主命令
+    aliases: [gkt,gkr]
+permissions:
+  geekt.command.take:
+    description: 使用指令 /geekt take
+    default: op
+  geekt.command.give:
+    description: 使用指令 /geekt give
+    default: op
