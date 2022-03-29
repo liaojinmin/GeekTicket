@@ -1,6 +1,5 @@
 package me.geekTicket.Libs;
 
-import me.geekTicket.GeekTicketMain;
 import sun.misc.Unsafe;
 
 import java.io.File;

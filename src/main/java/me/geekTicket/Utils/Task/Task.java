@@ -1,13 +1,15 @@
 package me.geekTicket.Utils.Task;
 
-import me.geekTicket.ConfigManager;
+import me.geekTicket.TicketAction.TicketDataManager;
+import me.geekTicket.Utils.Bukkit.ConfigManager;
 import me.geekTicket.GeekTicketMain;
-import me.geekTicket.Utils.Data.DataManager;
-import me.geekTicket.Utils.Data.PlayerDataConstructor;
-import me.geekTicket.Utils.Data.LeaderboardConstructor;
+import me.geekTicket.Utils.Data.DataBaseManager;
+import me.geekTicket.TicketAction.TicketObj;
+import me.geekTicket.TicketAction.LeaderboardObj;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.sql.*;
+import java.util.UUID;
 
 public class Task {
 
@@ -17,19 +19,19 @@ public class Task {
 
             @Override
             public void run() {
-                try (Connection connection = DataManager.getConnection()) {
+                try (Connection connection = DataBaseManager.getConnection()) {
                     try (Statement statement = connection.createStatement()) {
                         ResultSet res = statement.executeQuery("SELECT * FROM `roll_data` WHERE id");
                         if (!res.isBeforeFirst()) {
                             return;
                         }
-                        DataManager.getMapData.clear();
+                        TicketDataManager.getTicketMap.clear();
                         while (res.next()) {
                             String name = res.getString("name");
-                            String uuid = res.getString("uuid");
+                            UUID uuid = UUID.fromString(res.getString("uuid"));
                             int roll = res.getInt("roll");
-                            PlayerDataConstructor a = new PlayerDataConstructor(name, uuid, roll);
-                            DataManager.getMapData.put(uuid, a);
+                            TicketObj a = new TicketObj(name, uuid, roll);
+                            TicketDataManager.getTicketMap.put(uuid, a);
                         }
                     }
                 } catch (SQLException e) {
@@ -44,26 +46,27 @@ public class Task {
         new BukkitRunnable() {
             @Override
             public void run() {
-                try (Connection connection = DataManager.getConnection()){
+                try (Connection connection = DataBaseManager.getConnection()){
                     try (PreparedStatement statement = connection.prepareStatement("SELECT `name`, `roll` FROM `roll_data` ORDER BY roll DESC limit 10")) {
                         ResultSet res = statement.executeQuery();
                         if (res == null) {
                             GeekTicketMain.say("未知错误 - 排行榜异步错误");
                             return;
                         }
-                        DataManager.roil_top.clear();
+                        TicketDataManager.getTicketTopMap.clear();
                         int index = 1;
                         while (res.next()) {
                             String name = res.getString("name");
                             int roil = res.getInt("roll");
-                            LeaderboardConstructor a = new LeaderboardConstructor(name, roil);
-                            DataManager.roil_top.put(index, a);
+                            LeaderboardObj a = new LeaderboardObj(name, roil);
+                            TicketDataManager.getTicketTopMap.put(index, a);
                             index++;
                         }
                     }
+                    /*
                     if (ConfigManager.getConfig().getBoolean("auto_clear")) {
                         ClearAction.Run(ConfigManager.getConfig().getString("auto_clear_day"));
-                    }
+                    }*/
                 } catch (Exception e) {
                     GeekTicketMain.say("§8[§3§lGeekTicket§8] §C排行榜任务失败");
                     e.printStackTrace();

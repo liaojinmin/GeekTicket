@@ -1,7 +1,7 @@
 package me.geekTicket.Utils.Task;
 
 import me.geekTicket.GeekTicketMain;
-import me.geekTicket.Utils.Data.DataManager;
+import me.geekTicket.Utils.Data.DataBaseManager;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -18,7 +18,7 @@ public final class ClearAction {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd");
         String day = date.format(formatter);
         if (day.equals(s)) {
-            try (Connection connection = DataManager.getConnection()) {
+            try (Connection connection = DataBaseManager.getConnection()) {
                 try (Statement statement = connection.createStatement()) {
                     statement.execute("truncate table `roll_data`;");
                 }
