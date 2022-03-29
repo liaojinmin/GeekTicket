@@ -54,7 +54,7 @@ public final class TicketDataManager {
                 Task.getMapHashUp();
             }
         } catch (SQLException e) {
-            GeekTicketMain.say("§8[§3§lGeekTicket§8] §A创建数据库表时出错，你使用了正确的版本吗?");
+            GeekTicketMain.say("§8[§3§lGeekTicket§8] §A创建数据库表时出错， 你使用了正确的版本吗?");
             e.printStackTrace();
             Bukkit.getPluginManager().disablePlugin(GeekTicketMain.instance);
         }
