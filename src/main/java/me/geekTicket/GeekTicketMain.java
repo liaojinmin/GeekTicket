@@ -66,7 +66,7 @@ public final class GeekTicketMain extends JavaPlugin {
         Task.getLeaderboard();
         new Metrics(this, 14521);
         new CheckUpdate();
-        say("§8[§3§lGeekTicket§8] §b启动完成 §8(" + (System.currentTimeMillis() - stime) + " ms)");
+        say("§8[§3§lGeekTicket§8] §b启动完成 §8( " + (System.currentTimeMillis() - stime) + " ms)");
 
     }
 
