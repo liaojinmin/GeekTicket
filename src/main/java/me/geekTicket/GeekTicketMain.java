@@ -72,7 +72,7 @@ public final class GeekTicketMain extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        say("§8[§3§lGeekTicket§8] §A再见！");
+        say("§8[§3§lGeekTicket§8] §A再见！  ");
         DataBaseManager.closeData();
     }
 
