@@ -1,0 +1,38 @@
+Title: '&0&l月券商城'
+Shape:
+  - '  A   B  '
+Bindings:
+  Commands: '月券商店'
+Buttons:
+  A:
+    display:
+      mats: SHIELD
+      name: '# &E&Large points pack'
+      lore:
+        - ''
+        - '&7&lCost: &e&L500 coupons.'
+        - ''
+        - '&7&lItems: &d&l300 &e&lpoints &7*1'
+        - ''
+        - '&8[&3&lLeft Click&8] &7Purchase this item.'
+        - ''
+    Ticket-Condition: 500
+    deny: '&7&l[GeekTickets] &cYour have enough coupon(s)!'
+    console-Command:
+      - 'points give %player_name% 300'
+  B:
+    display:
+      mats: blaze_powder
+      name: '&6&lLarge money pack'
+      lore:
+        - ''
+        - '&7&lCost: &f&L300 &b&lcoupons.'
+        - ''
+        - '&7&lItems: &e&l$&d&l30000 &7*1'
+        - ''
+        - '&8[&3&lLeft Click&8] &7Purchase this item.'
+        - ''
+    Ticket-Condition: 300
+    deny: '&7&l[GeekTickets] &cYour have enough coupon(s)!'
+    console-Command:
+      - 'money give %player_name% 30000'

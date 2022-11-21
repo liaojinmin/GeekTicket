@@ -1,0 +1,25 @@
+PLUGIN_NAME: "&7&lGeekTicket &8>&7>&f>"
+NO_PERM: " &cYou don't have permission to run this command!"
+JOIN_SMG: " &bYou have unused coupon(s),which are automatically cleared at the end of the month, please use them ASAP."
+ISMATCH: " &cInvaild number and please type again!"
+ISONLINE: " &CThe specified player is not online."
+AC_MSG:
+  GIVE: " &aSuccessfully give &e[NAME] &e[TICKET] &acoupon(s)."
+  TAKE: " &a成功扣除玩家 &e[NAME] &e[TICKET] &A月卷"
+  OnGive: |-
+    &A
+    &a  &7&lGeekTicket &8>&7>&f>
+    &a
+    &a  You've got &e[TICKET] &acoupon(s).
+    &A
+  OnTake: |-
+    &A
+    &a  &7&lGeekTicket &8>&7>&f>
+    &a
+    &a  You've took &e[TICKET] &acoupon(s)
+    &A
+HELP:
+  - '&b&l/geekt &3&l help &8- &7Show help page'
+  - '&b&l/geekt &3&l give [name] [*]'
+  - '&b&l/geekt &3&l take [name] [*]'
+  - '&b&l/geekt &3&l set [name] [*]'

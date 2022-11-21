@@ -1,0 +1,38 @@
+Title: '&0&l月券商城'
+Shape:
+  - '  A   B  '
+Bindings:
+  Commands: '月券商店'
+Buttons:
+  A:
+    display:
+      mats: SHIELD
+      name: '# &E&L大堆 点卷礼包'
+      lore:
+        - ''
+        - '&7&l购买花费: &e&L500月券'
+        - ''
+        - '&7&l获得: &d&l300 &e&l点卷 &7*1'
+        - ''
+        - '&8[&3&l左键点击&8] &7购买'
+        - ''
+    Ticket-Condition: 500
+    deny: '&7&l[系统] &c你的月券余额不足，无法购买！'
+    console-Command:
+      - 'points give %player_name% 300'
+  B:
+    display:
+      mats: blaze_powder
+      name: '&6&l大堆 金币礼包'
+      lore:
+        - ''
+        - '&7&l购买花费: &f&L300 &b&l月券'
+        - ''
+        - '&7&l获得: &d&l30000 &e&l金币 &7*1'
+        - ''
+        - '&8[&3&l左键点击&8] &7购买'
+        - ''
+    Ticket-Condition: 300
+    deny: '&7&l[系统] &c你的月券余额不足，无法购买！'
+    console-Command:
+      - 'money give %player_name% 30000'

@@ -1,0 +1,47 @@
+#
+# Database settings, you could use sqlite or mysql as data save solution.
+# Default: sqlite
+data_storage:
+  use_type: sqlite
+  mysql:
+    host: '127.0.0.1'
+    port: 3306
+    database: 'server_ticket'
+    username: 'root'
+    password: '123456ABABABC'
+    params: '?autoReconnect=true&useSSL=false'
+    DataName: roll_data
+  hikari_settings:
+    maximum_pool_size: 10
+    minimum_idle: 5
+    maximum_lifetime: 1800000
+    keepalive_time: 0
+    connection_timeout: 5000
+
+#
+# Should we need to clean unused coupon(s) monthly? - If enable, it will clear all players' coupon(s) at the end of month. 
+# Default: false
+auto_clear: false
+
+#
+# When is the date to clean coupon(s)? Accepted number is demical between 1-31
+# Default: 1st
+auto_clear_day: 1
+
+#
+# 是否启用 BungeeCord 模式
+# Default: false
+startBungee: false
+
+#
+# Should we enable global coupon(s) leaderboard? This mode is only for ranking between server which are both under one BungeeCord.
+# Single server enable leaderboard by default, need'n to configure.
+# Default: false
+GlobalTop: false
+
+#
+# Should plugin automatically save its data? Recommend to open it.
+# Default: false
+AutoSave: false
+
+

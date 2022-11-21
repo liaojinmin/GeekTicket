@@ -1,0 +1,25 @@
+PLUGIN_NAME: "&7&lGeekTicket &8>&7>&f>"
+NO_PERM: " &c你没有权限执行这个指令!"
+JOIN_SMG: " &b你有月券还未使用，每月底自动清空，请及时消费！"
+ISMATCH: " &c无效的数字，请重新输入！"
+ISONLINE: " &C错误，玩家不在线。"
+AC_MSG:
+  GIVE: " &a成功给予玩家 &e[NAME] &e[TICKET] &A月卷"
+  TAKE: " &a成功扣除玩家 &e[NAME] &e[TICKET] &A月卷"
+  OnGive: |-
+    &A
+    &a  &7&lGeekTicket &8>&7>&f>
+    &a
+    &a  你获得了 &e[TICKET] &a月卷
+    &A
+  OnTake: |-
+    &A
+    &a  &7&lGeekTicket &8>&7>&f>
+    &a
+    &a  你被扣除了 &e[TICKET] &a月卷
+    &A
+HELP:
+  - '&b&l/geekt &3&l help &8- &7显示帮助'
+  - '&b&l/geekt &3&l give [name] [*]'
+  - '&b&l/geekt &3&l take [name] [*]'
+  - '&b&l/geekt &3&l set [name] [*]'
